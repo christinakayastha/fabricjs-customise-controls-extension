@@ -21,40 +21,10 @@
     //} );
 
     fabric.Canvas.prototype.customiseControls({
-        tl: {
+        mtr: {
             action: 'rotate',
-            cursor: 'cow.png',
-        },
-        tr: {
-            action: 'scale',
-        },
-        bl: {
-            action: 'remove',
-            cursor: 'pointer',
-        },
-        br: {
-            action: 'moveUp',
-            cursor: 'pointer',
-        },
-        mb: {
-            action: 'moveDown',
-            cursor: 'pointer',
-        },
-        mr: {
-            action: function(e, target) {
-                target.set({
-                    left: 200,
-                });
-                canvas.renderAll();
-            },
-            cursor: 'pointer',
-        },
-        mt: {
-            action: {
-                'rotateByDegrees': 30,
-            },
-            cursor: 'pointer',
-        },
+            cursor: 'icons/rotate.svg',
+        }
     });
 
     // basic settings
@@ -64,19 +34,7 @@
             cornerSize: 25,
             cornerShape: 'rect',
             cornerBackgroundColor: 'black',
-        },
-        tl: {
-            icon: 'icons/rotate.svg',
-        },
-        tr: {
-            icon: 'icons/resize.svg',
-        },
-        ml: {
-            icon: '//maxcdn.icons8.com/Share/icon/Logos//google_logo1600.png',
-        },
-        mr: {
-            icon: 'icons/diagonal-resize.svg',
-        },
+        }
     }, function() {
         canvas.renderAll();
     });
@@ -96,179 +54,29 @@
             scaleY: 0.2,
             originX: 'center',
             originY: 'center',
-            hasRotatingPoint: false,
-            cornerStrokeColor: 'blue'
+            cornerStrokeColor: '#4eb6e5',
+            transparentCorners: false,
+			borderColor: '#4eb6e5',
+			rotatingPointOffset: 20
         });
 
         // overwrite the prototype object based
         img.customiseCornerIcons({
             settings: {
-                borderColor: 'black',
-                cornerSize: 25,
+                borderColor: '#4eb6e5',
+                cornerBackgroundColor: '#fafafa',
+                cornerSize: 8,
                 cornerShape: 'rect',
-                cornerBackgroundColor: 'black',
-                cornerPadding: 10,
+                cornerPadding: 5,
             },
-            tl: {
+            mtr: {
                 icon: 'icons/rotate.svg',
-            },
-            tr: {
-                icon: 'icons/resize.svg',
-            },
-            bl: {
-                icon: 'icons/remove.svg',
-            },
-            br: {
-                icon: 'icons/up.svg',
-            },
-            mb: {
-                icon: 'icons/down.svg',
-            },
-            mt: {
-                icon: 'icons/acute.svg',
-            },
-            mr: {
-                icon: 'icons/repair-tools-cross.svg',
-            },
-        }, function() {
-            canvas.renderAll();
-        });
-
-        canvas.add(img);
-        canvas.setActiveObject(img);
-
-    });
-
-    image2.src = 'bear.jpg';
-    fabric.Image.fromURL(image2.src, function(img) {
-        img.set({
-            id: 'bear',
-            left: 100,
-            top: 100,
-            scaleX: 0.2,
-            scaleY: 0.2,
-            originX: 'center',
-            originY: 'center',
-            hasRotatingPoint: false,
-        });
-
-        // overwrite the prototype object based
-        img.customiseCornerIcons({
-            settings: {
-                borderColor: 'red',
-                cornerSize: 25,
-                cornerBackgroundColor: 'red',
-                cornerShape: 'circle',
-                cornerPadding: 10,
-            },
-            tl: {
-                icon: 'icons/rotate.svg',
-            },
-            tr: {
-                icon: 'icons/resize.svg',
-            },
-            bl: {
-                icon: 'icons/remove.svg',
-            },
-            br: {
-                icon: 'icons/up.svg',
-            },
-            mb: {
-                icon: 'icons/down.svg',
-            },
-            mt: {
-                icon: 'icons/acute.svg',
-            },
-            mr: {
-                icon: 'icons/repair-tools-cross.svg',
-            },
-        }, function() {
-            canvas.renderAll();
-        });
-
-        canvas.add(img);
-    });
-
-    image3.src = 'owl.jpg';
-    fabric.Image.fromURL(image3.src, function(img) {
-        img.set({
-            id: 'owl',
-            left: 300,
-            top: 100,
-            scaleX: 0.05,
-            scaleY: 0.05,
-            originX: 'center',
-            originY: 'center',
-            hasRotatingPoint: false,
-        });
-
-        // overwrite the prototype object based
-        img.customiseCornerIcons({
-            settings: {
-                borderColor: randomColor(),
-                cornerSize: 25,
-                cornerBackgroundColor: 'red',
-                cornerShape: 'circle',
-                cornerPadding: 10,
-            },
-            tl: {
-                icon: 'icons/rotate.svg',
+                cursor: 'cow.png',
                 settings: {
-                    cornerShape: 'rect',
-                    cornerBackgroundColor: randomColor(),
-                    cornerPadding: 10,
-                    cornerSize: 35
-                },
-            },
-            tr: {
-                icon: 'icons/resize.svg',
-                settings: {
-                    cornerShape: 'circle',
-                    cornerBackgroundColor: randomColor(),
-                    cornerPadding: 15,
-                    cornerSize: 15
-                },
-            },
-            bl: {
-                icon: 'icons/remove.svg',
-                settings: {
-                    cornerShape: 'rect',
-                    cornerBackgroundColor: randomColor(),
-                    cornerPadding: 12,
-                },
-            },
-            br: {
-                icon: 'icons/up.svg',
-                settings: {
-                    cornerShape: 'circle',
-                    cornerBackgroundColor: randomColor(),
-                    cornerPadding: 17,
-                },
-            },
-            mb: {
-                icon: 'icons/down.svg',
-                settings: {
-                    cornerShape: 'rect',
-                    cornerBackgroundColor: randomColor(),
-                    cornerPadding: 5,
-                },
-            },
-            mt: {
-                icon: 'icons/acute.svg',
-                settings: {
-                    cornerShape: 'circle',
-                    cornerBackgroundColor: randomColor(),
-                    cornerPadding: 8,
-                },
-            },
-            mr: {
-                icon: 'icons/repair-tools-cross.svg',
-                settings: {
-                    cornerShape: 'rect',
-                    cornerBackgroundColor: randomColor(),
-                    cornerPadding: 10,
-                },
-            },
+                    cornerSize: 20,
+                    cornerShape: 'circle'
+                }
+            }
         }, function() {
             canvas.renderAll();
         });
